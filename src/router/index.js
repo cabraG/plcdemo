@@ -66,6 +66,22 @@ export default new Router({
                     meta: { title: '权限测试', permission: true }
                 },
                 {
+                    // 富文本编辑器组件
+                    path: '/editor',
+                    component: resolve => require(['../components/page/VueEditor.vue'], resolve),
+                    meta: { title: '富文本编辑器' }
+                },
+                {
+                    // vue-schart组件sss
+                    path: '/charts',
+                    component: resolve => require(['../components/page/BaseCharts.vue'], resolve),
+                    meta: { title: 'schart图表' }
+                },{
+                    path: '/setting',
+                    component: resolve => require(['../components/page/Setting.vue'], resolve),
+                    meta: { title: '系统设置' }
+                },
+                {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),
                     meta: { title: '404' }
