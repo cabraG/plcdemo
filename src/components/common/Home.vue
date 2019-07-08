@@ -20,6 +20,8 @@
     import vSidebar from './Sidebar.vue';
     import vTags from './Tags.vue';
     import bus from './bus';
+    import {accTest} from "../../api/myapi"
+    import Cookies from 'js-cookie'
     export default {
         data(){
             return {
@@ -31,6 +33,30 @@
             vHead, vSidebar, vTags
         },
         created(){
+
+            console.log(location.search)
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                var strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                }
+            }
+            if(theRequest.hasOwnProperty("token")){
+                Cookies.set("token",theRequest.token)
+                accTest();
+            }
+            else {
+                accTest().then(function res(){
+                    if(res.code='700'){
+                        window.location.href="http://192.168.20.130:9300/authc?jid="+res.data.data;
+                    }
+                })
+        }
+
+
             bus.$on('collapse', msg => {
                 this.collapse = msg;
             })
@@ -47,5 +73,21 @@
                 this.tagsList = arr;
             })
         }
+        ,
+        method:{
+            GetRequest(){
+                    var url = location.search; //获取url中"?"符后的字串
+                    var theRequest = new Object();
+                    if (url.indexOf("?") != -1) {
+                        var str = url.substr(1);
+                        strs = str.split("&");
+                        for(var i = 0; i < strs.length; i ++) {
+                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                        }
+                    }
+                    return theRequest;
     }
+    }
+    }
+
 </script>

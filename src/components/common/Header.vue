@@ -4,7 +4,7 @@
         <div class="collapse-btn no-drag" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">PLC二级系统</div>
+        <div class="logo">demo</div>
         <div class="header-right  no-drag">
             <div class="header-user-con">
                 <!-- 消息中心 -->

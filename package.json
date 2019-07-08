@@ -20,7 +20,8 @@
     "vue-router": "^3.0.1",
     "vue-schart": "^1.0.0",
     "vuedraggable": "^2.20.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "js-cookie": "2.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",

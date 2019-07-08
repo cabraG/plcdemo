@@ -50,6 +50,15 @@ export function dateUpdate(data) {
         data
     })
 
+}
+
+export function accTest() {
+    return request({
+        url: '/account',
+        method: 'post',
+
+    })
 
 }
+
 
